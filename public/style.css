@@ -1,0 +1,132 @@
+html {
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Merriweather', serif;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex: 1;
+  color: white;
+  background-color: #0f0f0f;
+  background-image: -webkit-linear-gradient(bottom, #0f0f0f 0%, #454847 100%);
+  background-image: -o-linear-gradient(bottom, #0f0f0f 0%, #454847 100%);
+  background-image: linear-gradient(to top, #0f0f0f 0%, #454847 100%);
+}
+
+ul {
+  list-style-type: none;
+}
+
+/********************
+NAVIGATION BAR
+*********************/
+
+.navbar {
+  padding: 1rem 0;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.navbar__container {
+  margin: 0 auto;
+  max-width: var(--limited-width-container);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.navbar__list {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar__link {
+  color: white;
+  margin: 0.5em;
+  text-decoration: none;
+  font-size: 1.3em;
+}
+
+.navbar__link:hover {
+  border-bottom: solid 3px white;
+}
+
+.navbar__link--active {
+  border-bottom: solid 3px white;
+}
+
+/********************
+FOOTER
+*********************/
+
+.footer__container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5em auto;
+  max-width: var(--limited-width-container);
+  padding: 1rem 1rem;
+  color: lightgrey;
+}
+
+/********************
+HOME PAGE
+*********************/
+
+h1 {
+  font-size: 6em;
+  padding: 0.5em;
+}
+
+h3 {
+  font-size: 2em;
+  /*font-style: italic;*/
+  margin-bottom: 2em;
+}
+
+.distance-li__link {
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 50px;
+  background: #3cfafa;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  margin: 0.1em;
+}
+
+.distance-li__link:hover {
+  background: #effc3c;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.distance__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/********************
+PLANET PAGE
+*********************/
+
+/********************
+SEARCH RESULTS PAGE
+*********************/
+
+/********************
+ERROR PAGE
+*********************/
+
+.error__image {
+  height: 40em;
+  width: 40em;
+}
