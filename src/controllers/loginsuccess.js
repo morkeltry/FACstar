@@ -8,18 +8,15 @@ const loginSuccess = {};
 loginSuccess.get = (req, responseToUser) => {
 
     if (false) {      ///check isAuthenticated
-      return reply.redirect('/');   //ooh, that's not express!
+      return responseToUser.redirect('/');
     }
-    console.log ('AUTH: ',req.auth);
     const successCode = req.query.code;
     let url = 'https://github.com/login/oauth/access_token';
     url += `?client_id=${GITHUB_CLIENT_ID}&client_secret=${GITHUB_CLIENT_SECRET}&code=${successCode}`;
-      console.log ('Req1: ',{url:url});
     request.post(url, (err, res, body) => {
       if (err) console.log(err);
 
       const parsed = queryString.parse(body);
-      console.log (parsed);
       if (parsed.error === 'bad_verification_code')
         console.log ('and... one more time from the top.');
       if (parsed.error === 'incorrect_client_credentials')
@@ -31,7 +28,6 @@ loginSuccess.get = (req, responseToUser) => {
         Authorization: `token ${accessToken}`,
       };
       url = 'https://api.github.com/user';
-      console.log ('Req2: ',{ url: url, headers });
       request.get({ url: url, headers }, (err, res, body) => {
         if (err) console.log(err);
         const parsedBody = JSON.parse(body);
@@ -41,25 +37,9 @@ loginSuccess.get = (req, responseToUser) => {
           name: parsedBody.name,
           pic: parsedBody.avatar_url,
         };
-        console.log (userData);
-
-        // req.cookieAuth.set({
-        //   accessToken,
-        //   name: userData.name,
-        //   pic: userData.pic,
-        //   username: userData.username,
-        // });
-
-        // saveUserData(userData, (err) => {
-        //   if (err) console.log(err);
-        //   reply.redirect('/');
-        // });
-
-        console.log ('AUTH: ',req.auth);
-          responseToUser.render('home',{user: '@'+userData.username});
+        responseToUser.render('home',{user: '@'+userData.username});
       });
     });
-
 
 }
 
