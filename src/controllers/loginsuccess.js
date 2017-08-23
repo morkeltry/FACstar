@@ -34,7 +34,7 @@ loginSuccess.get = (req, responseToUser) => {
     };
     url = 'https://api.github.com/user';
     console.log ('Req2: ',{ url: url, headers });
-    request.get({ url: url, headers }, (err, res, body) => {
+    request.get({ url, headers }, (err, res, body) => {
       if (err) console.log(err);
       const username = JSON.parse(body).login;
       console.log (username);
