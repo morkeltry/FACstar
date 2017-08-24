@@ -9,7 +9,10 @@ results in github calling back to
 
 So make a call to
 ```https://github.com/login/oauth/access_token?
-client_id=GITHUB_CLIENT_ID&client_secret=GITHUB_CLIENT_SECRET&code=codeSESSIONCODE ```,
+client_id=
+GITHUB_CLIENT_ID&client_secret=GITHUB_CLIENT_SECRET&code=codeSESSIONCODE
+```
+
 
  making sure `User-Agent` is set in `headers`.
 
@@ -21,9 +24,12 @@ error_description,
 error_uri }
 ```
 or
-```{access_token=xyz,
+```
+{access_token=xyz,
 scope,
-token_type}```?
+token_type}
+```
+?
 
 Coolz...
 So `POST` request to `https://api.github.com/user`,
